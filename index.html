@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Pinnacle Academy</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f4f6f8;
+        }
+
+       header {
+    background: linear-gradient(135deg, #1e293b, #312e81);
+    color: white;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 32px;
+    letter-spacing: 1px;
+}
+
+header p {
+    margin-top: 8px;
+    font-size: 15px;
+    color: #cbd5e1;
+}
+
+        .container {
+            padding: 40px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 25px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            padding: 25px;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+	      display: flex;
+    flex-direction: column;
+min-height: 260px;   /* 👈 THIS is the missing piece */
+        }
+	
+
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+        }
+
+        .card h2 {
+            margin-top: 0;
+            color: #0f172a;
+        }
+
+        .card p {
+            color: #475569;
+            line-height: 1.6;
+	    margin-top: auto;
+    padding-top: 10px;
+        }
+
+        footer {
+            background: #0f172a;
+            color: #cbd5e1;
+            text-align: center;
+            padding: 15px;
+            font-size: 14px;
+        }
+	
+	.whatsapp-float {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #25D366;
+    color: white;
+    border-radius: 50px;
+    padding: 12px 18px;
+    font-size: 16px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    z-index: 1000;
+}
+
+.whatsapp-float:hover {
+    background-color: #1ebe5d;
+}
+
+.box-dark {
+    background: linear-gradient(135deg, #5b2d8b, #7c3aed);
+    color: #f5f3ff;
+    border-radius: 14px;
+    padding: 25px;
+    margin: 20px 40px;
+    box-shadow: 0 15px 35px rgba(88, 28, 135, 0.35);
+}
+
+.box-dark h2 {
+    color: #ede9fe;
+}
+
+.box-dark:hover {
+    transform: translateY(-4px);
+    transition: 0.3s ease;
+}
+
+
+.c-card h2 {
+    font-weight: bold;
+    letter-spacing: 0.5px;
+}
+
+/* C Programming Card Background */
+.c-card {
+    background-image: url("./images/c_back.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: white;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Dark overlay for readability */
+.c-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 0;
+}
+
+/* Keep text above overlay */
+.c-card h2,
+.c-card p {
+    position: relative;
+    z-index: 1;
+    color: #f8fafc;
+
+}
+
+
+
+
+.c-card:hover {
+    transform: translateY(-6px) scale(1.01);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.35);
+}
+
+
+
+
+/* Physics Card Background */
+.physics-card {
+    background-image: url("./images/phy_back.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: white;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Overlay for readability */
+.physics-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45);
+    z-index: 0;
+}
+
+/* Keep text above overlay */
+.physics-card h2,
+.physics-card p {
+    position: relative;
+    z-index: 1;
+    color: #f8fafc;
+}
+
+.physics-card:hover {
+    transform: translateY(-6px) scale(1.01);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.35);
+}
+
+
+/* Recorded Lectures Card Background */
+.recorded-card {
+    background-image: url("./images/rec_back.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: white;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Slight overlay (lighter than others) */
+.recorded-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 0;
+}
+
+/* Text above overlay */
+.recorded-card h2,
+.recorded-card p {
+    position: relative;
+    z-index: 1;
+    color: #f8fafc;
+}
+
+/* Optional hover polish */
+.recorded-card:hover {
+    transform: translateY(-6px) scale(1.01);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.35);
+}
+
+.main-header {
+  background: #1e293b;
+    color: white;
+    padding: 30px 20px;
+    text-align: center;
+ 
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+}
+
+.brand img {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+	
+}
+
+.main-header h1 {
+    margin: 0;
+    font-size: 36px;
+    letter-spacing: 1.2px;
+    font-weight: 800;
+    
+
+}
+
+.main-header p {
+    margin-top: 10px;
+    font-size: 16px;
+    color: #c7d2fe;
+}
+
+
+    </style>
+</head>
+<body>
+
+<header class="main-header">
+    <div class="brand">
+        <img src="./images/logo.png" alt="Pinnacle Academy Logo">
+        <h1>PINNACLE ACADEMY</h1>
+    </div>
+    <p>From Basics to Brilliance</p>
+</header>
+
+
+<div class="container">
+
+    <!-- Course Card -->
+    <div class="card c-card" onclick="location.href='course.html'">
+        <h2>🖥️'C' PROGRAMMING LANGUAGE & DATA STRUCTURES</h2>
+        <p>
+            Learn C from basics to advanced along with Data Structures.
+            Ideal for beginners, college students & job aspirants. 
+            
+        </p>
+    </div>
+
+    <!-- Future course cards can be added here -->
+    <!--
+    <div class="card">New Course</div>
+    -->
+<div class="card physics-card" onclick="location.href='physics.html'">
+    <h2>🚀PHYSICS </h2>
+    <p>
+        Concept-based Physics with numerical problem solving.
+        Ideal for class 11,12 students & competitive exam aspirants.
+    </p>
+</div>
+
+
+<div class="card recorded-card" onclick="location.href='recorded_free.html'">
+    <h2>🎥RECORDED LECTURES</h2>
+    <p>
+       Free Math & physical Science Lecture for class 9 & 10
+    </p>
+</div>
+
+
+</div>
+
+<div class="box box-dark">
+    <h2> Mission</h2>
+    <p>
+        Our mission is to build strong academic and technical foundations
+        through concept-based teaching, practical learning, and continuous
+        student support, making quality education affordable and accessible.
+    </p>
+</div>
+
+</div>
+
+<div class="box box-dark">
+    <h2> Vision</h2>
+    <p>
+        To become a trusted learning center that empowers students with
+        clarity of concepts, confidence, and problem-solving skills,
+        preparing them for academics, careers, and competitive exams.
+    </p>
+</div>
+
+
+<div class="box box-dark">
+    <h2> Future Objective</h2>
+    <ul>
+        <li>Introduce advanced programming courses such as C++, Python, Embedded C</li>
+        <li>Launch Embedded Systems training with hands-on microcontroller and hardware projects</li>
+        <li>Expand academic coaching in Physics, Mathematics, and other core science subjects with recorded lectures</li>
+        <li>Provide career-oriented learning with projects, assessments, and guidance</li>
+	<li>Develop a blended learning model with both offline and online classes</li>
+    </ul>
+</div>
+
+<div class="box box-dark">
+    <h2> Contact Us</h2>
+    <ul>
+        
+      <li>
+    <strong>Phone / WhatsApp:</strong>
+    <a href="tel:+918637370206" style="color:#e0f2fe; text-decoration:none;">
+        +91 8637370206
+    </a>
+</li>
+
+<li>
+    <strong>Email:</strong>
+    <a href="mailto:pinnacleacademy.mid@gmail.com" style="color:#e0f2fe; text-decoration:none;">
+        pinnacleacademy.mid@gmail.com
+    </a>
+</li>
+
+        <li><strong>Location:</strong> Kotebazar,Midnapore,Paschim Medinipur,West Bengal:721101</li>
+    </ul>
+</div>
+
+
+</div>
+
+<a class="whatsapp-float"
+   href="https://wa.me/918637370206?text=Hello%20Pinnacle%20Academy,%20I%20want%20to%20ask%20about%20your%20courses."
+   target="_blank">
+    💬 Ask on WhatsApp
+</a>
+
+<footer>
+    © 2026 Pinnacle Academy | Learn. Practice. Grow.
+</footer>
+
+</body>
+</html>
